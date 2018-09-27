@@ -8,7 +8,8 @@
     "url": "git+ssh://github.com/kranfix/node-red-contrib-natsio.git"
   },
   "dependencies": {
-    "nats": "^1.0.1"
+    "nats": "^1.0.1",
+    "node-nats-streaming": "0.0.41"
   },
   "keywords": [
     "node-red",
@@ -22,7 +23,9 @@
       "natsio_sub": "natsio_sub.js",
       "natsio_pub": "natsio_pub.js",
       "natsio_req": "natsio_req.js",
-      "natsio_server": "natsio_server.js"
+      "natsio_server": "natsio_server.js",
+      "natsio_streaming_sub": "natsio_streaming_sub.js",
+      "natsio_streaming_server": "natsio_streaming_server.js"
     }
   },
   "license": "MIT",

@@ -1,0 +1,34 @@
+<script type="text/javascript">
+    RED.nodes.registerType('natsio-streaming-sub', {
+        category: 'NatsIO',
+        color: '#3FADB5',
+        defaults: {
+            server: { value: "", type: "natsio-streaming-server", required: true },
+            subject: { value: "", required: true },
+            durableName: { value: "nodered" },
+        },
+        inputs: 0,
+        outputs: 1,
+        icon: "bridge.png",
+        label: "nats-streaming-sub"
+    });
+</script>
+
+<script type="text/x-red" data-template-name="natsio-streaming-sub">
+  <div class="form-row">
+    <label for="node-input-server"><i class="icon-tag"></i> server</label>
+    <input type="text" id="node-input-server" placeholder="server">
+  </div>
+  <div class="form-row">
+    <label for="node-input-subject"><i class="icon-tag"></i> subject</label>
+    <input type="text" id="node-input-subject" placeholder="subject">
+  </div>
+  <div class="form-row">
+    <label for="node-input-durableName"><i class="icon-tag"></i> Durable Name</label>
+    <input type="text" id="node-input-durableName" placeholder="durable-name">
+  </div>
+</script>
+
+<script type="text/x-red" data-help-name="natsio-streaming-sub">
+  <p>nats.io-streaming-sub node</p>
+</script>
