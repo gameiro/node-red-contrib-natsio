@@ -1,3 +1,12 @@
+function isJson(str) {
+    try {
+        JSON.parse(str);
+    } catch (e) {
+        return false;
+    }
+    return true;
+}
+  
 module.exports = function(RED) {
   function NatsStreamingSubNode(n) {
     RED.nodes.createNode(this, n);
@@ -14,9 +23,13 @@ module.exports = function(RED) {
 
         node.sid = node.server.sc.subscribe(n.subject, n.durableName, options);
 
+        // validate msg payload
+        const payload = isJson(msg.getData().toString()) ? msg.getData().toString() : {};
+        
+        if (IsJsonString)
         node.sid.on('message', (msg) => {
           node.send({
-            payload: JSON.parse(msg.getData().toString()),
+            payload: payload,
             topic: msg.getSubject()
           });
         });
