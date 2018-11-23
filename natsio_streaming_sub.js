@@ -23,11 +23,9 @@ module.exports = function(RED) {
 
         node.sid = node.server.sc.subscribe(n.subject, n.durableName, options);
 
-        // validate msg payload
-        const payload = isJson(msg.getData().toString()) ? msg.getData().toString() : {};
-        
-        if (IsJsonString)
         node.sid.on('message', (msg) => {
+          // validate msg payload
+          const payload = isJson(msg.getData().toString()) ? msg.getData().toString() : {};
           node.send({
             payload: payload,
             topic: msg.getSubject()
