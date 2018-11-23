@@ -25,7 +25,8 @@ module.exports = function(RED) {
 
         node.sid.on('message', (msg) => {
           // validate msg payload
-          const payload = isJson(msg.getData().toString()) ? msg.getData().toString() : {};
+          const jsonString = msg.getData().toString();
+          const payload = isJson(jsonString) ? JSON.parse(jsonString) : {};
           node.send({
             payload: payload,
             topic: msg.getSubject()
